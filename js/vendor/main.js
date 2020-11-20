@@ -44,8 +44,8 @@
     })
 
     // Tweet button.
-    var twitterTitle  = 'Adaptive Backgrounds - a jQuery plugin to extract dominant colors from <img> tags and apply them to their parent'; 
-    var twitterLoc    = 'http://goo.gl/zdw3uQ';
+    var twitterTitle  = 'GoodToCode Blog Article has been posted!'; 
+    var twitterLoc    = 'http://goodtocode.github.io/blog/1';
 
     $('.button.tweet').on('click', function(e){
       e.preventDefault();
