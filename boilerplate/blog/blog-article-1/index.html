@@ -1,0 +1,82 @@
+<!--
+og:title - The title of your object as it should appear within the graph, e.g., "The Rock".
+og:image - An image URL which should represent your object within the graph.
+og:url - The canonical URL of your object that will be used as its permanent ID in the graph, e.g., "https://www.imdb.com/title/tt0117500/".
+og:type - The type of your object, e.g., "video.movie". Depending on the type you specify, other properties may also be required.
+og:type:article - Namespace URI: https://ogp.me/ns/article#
+    article:published_time - datetime - When the article was first published (ISO 8601).
+    article:modified_time - datetime - When the article was last changed (ISO 8601).
+    article:expiration_time - datetime - When the article is out of date after (ISO 8601).
+    article:author - profile array - Writers of the article.
+    article:section - string - A high-level section name. E.g. Technology
+    article:tag - string array - Tag words associated with this article.
+
+<meta property="og:title" content="The Rock" />
+<meta property="og:type" content="video.movie" />
+<meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+<meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+
+checker: https://www.opengraph.xyz/
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../css/blog.css" rel="stylesheet">
+        
+        <meta property="og:title" content="The Rock" />
+        <meta property="og:type" content="video.movie" />
+        <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+        <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+        
+        <meta property="og:type" content="article" />
+    </head>
+    <body>
+
+        <div class="header">
+            <h2>Blog Name</h2>
+        </div>
+
+        <div class="row">
+            <div class="leftcolumn">
+                <div class="card">
+                <h2>TITLE HEADING</h2>
+                <h5>Title description, Dec 7, 2017</h5>
+                <div class="fakeimg" style="height:200px;">Image</div>
+                <p>Some text..</p>
+                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                </div>
+                <div class="card">
+                <h2>TITLE HEADING</h2>
+                <h5>Title description, Sep 2, 2017</h5>
+                <div class="fakeimg" style="height:200px;">Image</div>
+                <p>Some text..</p>
+                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                </div>
+            </div>
+            <div class="rightcolumn">
+                <div class="card">
+                <h2>About Me</h2>
+                <div class="fakeimg" style="height:100px;">Image</div>
+                <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+                </div>
+                <div class="card">
+                <h3>Popular Post</h3>
+                <div class="fakeimg">Image</div><br>
+                <div class="fakeimg">Image</div><br>
+                <div class="fakeimg">Image</div>
+                </div>
+                <div class="card">
+                <h3>Follow Me</h3>
+                <p>Some text..</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>Footer</h2>
+        </div>
+
+    </body>
+</html>
