@@ -22,7 +22,7 @@
              .css({ background: data.color })
              .after(data.color)
 
-      if ( $(this).attr('data-description') == 'grandpa' ){
+      if ( $(this).attr('data-description') == 'slide-1' ){
         $(this).parents('.image-wrapper')
                .css({ background: data.color })
       }
@@ -44,8 +44,8 @@
     })
 
     // Tweet button.
-    var twitterTitle  = 'GoodToCode Blog Article has been posted!'; 
-    var twitterLoc    = 'http://goodtocode.github.io/blog/1';
+    var twitterTitle  = 'GoodToCode Article has been posted!'; 
+    var twitterLoc    = 'http://goodtocode.github.io';
 
     $('.button.tweet').on('click', function(e){
       e.preventDefault();
