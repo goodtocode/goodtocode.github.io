@@ -20,7 +20,7 @@ jobs:
     env:
       template: ../variables/development.yml    
     steps:
-    - uses: ../steps/landingzone-infrastructure-steps.yml
+    - uses: ../reusable-workflows/landingzone-infrastructure-steps.yml
       with:
         armPath: ${{ env.infrastructurePath }}
         subscriptionId: ${{ env. parameters.subscriptionId  }}
@@ -38,7 +38,7 @@ jobs:
     env:
       template: ../variables/production.yml
     steps:
-    - uses: ../steps/landingzone-infrastructure-steps.yml 
+    - uses: ../reusable-workflows/landingzone-infrastructure-steps.yml 
       with:
         armPath: ${{ env.infrastructurePath }}
         subscriptionId: ${{ env. parameters.subscriptionId  }}
