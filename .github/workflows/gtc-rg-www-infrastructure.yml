@@ -7,10 +7,7 @@ on:
 
 env:
   template: ./.github/variables/common.yml
-  appcsConnection: ${{ env.appcsConnection }}
-  appcsKeys: '[ "Shared:Sentinel", "ConnectionStrings:StorageTables" ]'
-  appcsValues: '[ "1", "${{ env.stConnection }}" ]'
-  subscriptionId: ${{ env.subscriptionId }}
+  subscriptionId: $subscriptionId
   subscriptionService: AZURE_SERVICE_CONNECTION
 
 jobs:  
@@ -22,15 +19,15 @@ jobs:
     steps:
     - uses: ./.github/reusable-workflows/landingzone-infrastructure-steps.yml
       with:
-        armPath: ${{ env.infrastructurePath }}
-        subscriptionId: ${{ env.parameters.subscriptionId  }}
-        subscriptionService: ${{ env.parameters.subscriptionService  }}
-        rgName: ${{ env.rgName }}
-        rgLocation: ${{ env.rgLocation }}
-        appiName: ${{ env.appiName }}
-        kvName: ${{ env.kvName }}
-        stName: ${{ env.stName }}
-        workName: ${{ env.workName }}
+        armPath: $infrastructurePath
+        subscriptionId: $subscriptionId 
+        subscriptionService: $subscriptionService 
+        rgName: $rgName
+        rgLocation: $rgLocation
+        appiName: $appiName
+        kvName: $kvName
+        stName: $stName
+        workName: $workName
   
   production_Stage_deploy_landing_zone:
     if: (github.ref == 'refs/heads/main')
@@ -40,13 +37,13 @@ jobs:
     steps:
     - uses: ./.github/reusable-workflows/landingzone-infrastructure-steps.yml 
       with:
-        armPath: ${{ env.infrastructurePath }}
-        subscriptionId: ${{ env.parameters.subscriptionId  }}
-        subscriptionService: ${{ env.parameters.subscriptionService  }}
-        rgName: ${{ env.rgName }}
-        rgLocation: ${{ env.rgLocation }}
-        appiName: ${{ env.appiName }}
-        kvName: ${{ env.kvName }}
-        stName: ${{ env.stName }}
-        workName: ${{ env.workName }}
+        armPath: $infrastructurePath
+        subscriptionId: $subscriptionId 
+        subscriptionService: $subscriptionService 
+        rgName: $rgName
+        rgLocation: $rgLocation
+        appiName: $appiName
+        kvName: $kvName
+        stName: $stName
+        workName: $workName
                     
