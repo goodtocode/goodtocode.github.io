@@ -1,0 +1,11 @@
+env:
+  group: gtc-rg-www-prod
+  template: common.yml
+  rgEnvironment: Production
+  rgName: rg-www-prod-001
+  locationName: West US 2
+  appInsightsName: appi-www-prod-001
+  kvName: kv-www-prod-001
+  storageName: stwwwprod001
+  workspaceName: work-www-prod-001
+                    

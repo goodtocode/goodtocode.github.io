@@ -1,0 +1,55 @@
+on:
+  push:
+    branches:
+    - '*'
+    paths:
+    - .azure/*
+  pull-request:
+    branches-ignore:
+    - '*'
+
+env:
+  template: ../variables/common.yml
+  appcsConnection: ${{ env.appcsConnection }}
+  appcsKeys: '[ "Shared:Sentinel", "ConnectionStrings:StorageTables" ]'
+  appcsValues: '[ "1", "${{ env.stConnection }}" ]'
+  subscriptionId: ${{ env.subscriptionId }}
+  subscriptionService: AZURE_SERVICE_CONNECTION
+
+jobs:  
+  development_Stage_deploy_landing_zone:
+    if: (github.ref != 'refs/heads/main')
+    runs-on: ubuntu-latest    
+    env:
+      template: ../variables/development.yml    
+    steps:
+    - uses: ../steps/landingzone-infrastructure-steps.yml
+      with:
+        armPath: ${{ env.infrastructurePath }}
+        subscriptionId: ${{ env. parameters.subscriptionId  }}
+        subscriptionService: ${{ env. parameters.subscriptionService  }}
+        rgName: ${{ env.rgName }}
+        rgLocation: ${{ env.rgLocation }}
+        appiName: ${{ env.appiName }}
+        kvName: ${{ env.kvName }}
+        stName: ${{ env.stName }}
+        workName: ${{ env.workName }}
+  
+  production_Stage_deploy_landing_zone:
+    if: (github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest    
+    env:
+      template: ../variables/production.yml
+    steps:
+    - uses: ../steps/landingzone-infrastructure-steps.yml 
+      with:
+        armPath: ${{ env.infrastructurePath }}
+        subscriptionId: ${{ env. parameters.subscriptionId  }}
+        subscriptionService: ${{ env. parameters.subscriptionService  }}
+        rgName: ${{ env.rgName }}
+        rgLocation: ${{ env.rgLocation }}
+        appiName: ${{ env.appiName }}
+        kvName: ${{ env.kvName }}
+        stName: ${{ env.stName }}
+        workName: ${{ env.workName }}
+                    
