@@ -20,7 +20,7 @@ jobs:
     env:
       template: ../variables/development.yml    
     steps:
-    - uses: ../reusable-workflows/landingzone-infrastructure-steps.yml
+    - uses: goodtocode/goodtocode.github.io/.github/reusable-workflows/landingzone-infrastructure-steps.yml@3-create-devops-and-azure-static-infrastructure
       with:
         armPath: ${{ env.infrastructurePath }}
         subscriptionId: ${{ env. parameters.subscriptionId  }}
@@ -38,7 +38,7 @@ jobs:
     env:
       template: ../variables/production.yml
     steps:
-    - uses: ../reusable-workflows/landingzone-infrastructure-steps.yml 
+    - uses: goodtocode/goodtocode.github.io/.github/reusable-workflows/landingzone-infrastructure-steps.yml@3-create-devops-and-azure-static-infrastructure
       with:
         armPath: ${{ env.infrastructurePath }}
         subscriptionId: ${{ env. parameters.subscriptionId  }}
