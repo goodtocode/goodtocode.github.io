@@ -6,7 +6,7 @@ on:
     - .azure/*
 
 env:
-  template: ../variables/common.yml
+  template: ./.github/variables/common.yml
   appcsConnection: ${{ env.appcsConnection }}
   appcsKeys: '[ "Shared:Sentinel", "ConnectionStrings:StorageTables" ]'
   appcsValues: '[ "1", "${{ env.stConnection }}" ]'
@@ -18,7 +18,7 @@ jobs:
     if: (github.ref != 'refs/heads/main')
     runs-on: ubuntu-latest    
     env:
-      template: ../variables/development.yml    
+      template: ./.github/variables/development.yml    
     steps:
     - uses: ./.github/reusable-workflows/landingzone-infrastructure-steps.yml
       with:
@@ -36,7 +36,7 @@ jobs:
     if: (github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest    
     env:
-      template: ../variables/production.yml
+      template: ./.github/variables/production.yml
     steps:
     - uses: ./.github/reusable-workflows/landingzone-infrastructure-steps.yml 
       with:
