@@ -19,7 +19,7 @@ jobs:
       template: ./.github/variables/development.yml    
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/reusable-workflows/landingzone-infrastructure-steps.yml
+    - uses: goodtocode/goodtocode.github.io/.github/reusable-workflows/landingzone-infrastructure-steps.yml@main
       with:
         armPath: $infrastructurePath
         subscriptionId: $subscriptionId 
@@ -38,7 +38,7 @@ jobs:
       template: ./.github/variables/production.yml
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/reusable-workflows/landingzone-infrastructure-steps.yml 
+    - uses: goodtocode/goodtocode.github.io/.github/reusable-workflows/landingzone-infrastructure-steps.yml@main
       with:
         armPath: $infrastructurePath
         subscriptionId: $subscriptionId 
