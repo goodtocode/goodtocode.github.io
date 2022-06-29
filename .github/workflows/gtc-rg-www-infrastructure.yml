@@ -4,9 +4,6 @@ on:
     - '*'
     paths:
     - .azure/*
-  pull-request:
-    branches-ignore:
-    - '*'
 
 env:
   template: ../variables/common.yml
