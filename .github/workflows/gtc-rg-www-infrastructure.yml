@@ -4,6 +4,7 @@ on:
     - '*'
     paths:
     - .azure/*
+    - .github/workflows/*
 
 env:
   template: ./.github/variables/common.yml
