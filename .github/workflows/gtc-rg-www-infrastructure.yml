@@ -18,6 +18,7 @@ jobs:
     env:
       template: ./.github/variables/development.yml    
     steps:
+    - uses: actions/checkout@v2
     - uses: ./.github/reusable-workflows/landingzone-infrastructure-steps.yml
       with:
         armPath: $infrastructurePath
@@ -36,6 +37,7 @@ jobs:
     env:
       template: ./.github/variables/production.yml
     steps:
+    - uses: actions/checkout@v2
     - uses: ./.github/reusable-workflows/landingzone-infrastructure-steps.yml 
       with:
         armPath: $infrastructurePath
