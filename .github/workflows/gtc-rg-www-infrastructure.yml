@@ -6,8 +6,7 @@ on:
     - .azure/*
     - .github/workflows/*
 
-env:
-  subscriptionId: ${{ secret.SUBSCRIPTION_ID }}
+env:  
   companyInfix: 'gtc'
   coutnerInfix: '001'
   productInfix: 'www'
@@ -21,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: development
     env:
+      subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
       environmentInfix: 'dev'
     uses: goodtocode/goodtocode.github.io/.github/workflows/landingzone-infrastructure-steps.yml@3-create-devops-and-azure-static-infrastructure
     with:
