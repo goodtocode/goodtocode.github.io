@@ -7,42 +7,30 @@ on:
     - .github/workflows/*
 
 env:
-  template: ./.github/variables/common.yml
-  subscriptionId: $subscriptionId
+  subscriptionId: ${{ secret.SUBSCRIPTION_ID }}
+  companyInfix: 'gtc'
+  coutnerInfix: '001'
+  productInfix: 'www'
+  rgLocation: 'westus2'
   subscriptionService: AZURE_SERVICE_CONNECTION
+  infrastructurePath: ${{ github.workspace }}/.azure
 
 jobs:  
-  development_Stage_deploy_landing_zone:
+  development_landing_zone:
     if: (github.ref != 'refs/heads/main')
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
+    environment: development
     env:
-      template: ./.github/variables/development.yml    
+      environmentInfix: 'dev'
     uses: goodtocode/goodtocode.github.io/.github/reusable-workflows/landingzone-infrastructure-steps.yml@3-create-devops-and-azure-static-infrastructure
     with:
-      armPath: $infrastructurePath
-      subscriptionId: $subscriptionId 
-      subscriptionService: $subscriptionService 
-      rgName: $rgName
-      rgLocation: $rgLocation
-      appiName: $appiName
-      kvName: $kvName
-      stName: $stName
-      workName: $workName
+      armPath: ${{ env.infrastructurePath }}
+      subscriptionId: ${{ env.subscriptionId }}
+      subscriptionService: ${{ env.subscriptionService }}
+      rgName: '${{ env.companyInfix }}-rg-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
+      rgLocation: ${{ env.rgLocation }}
+      appiName: 'appi-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
+      kvName: 'kv-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
+      stName: 'st-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
+      workName: 'work-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
   
-  production_Stage_deploy_landing_zone:
-    if: (github.ref == 'refs/heads/main')
-    runs-on: ubuntu-latest    
-    env:
-      template: ./.github/variables/production.yml
-    uses: goodtocode/goodtocode.github.io/.github/reusable-workflows/landingzone-infrastructure-steps.yml@3-create-devops-and-azure-static-infrastructure
-    with:
-      armPath: $infrastructurePath
-      subscriptionId: $subscriptionId 
-      subscriptionService: $subscriptionService 
-      rgName: $rgName
-      rgLocation: $rgLocation
-      appiName: $appiName
-      kvName: $kvName
-      stName: $stName
-      workName: $workName
-                    
