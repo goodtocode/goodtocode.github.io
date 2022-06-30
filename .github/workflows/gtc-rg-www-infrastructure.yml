@@ -18,16 +18,16 @@ jobs:
     env:
       template: ./.github/variables/development.yml    
     uses: goodtocode/goodtocode.github.io/.github/reusable-workflows/landingzone-infrastructure-steps.yml@3-create-devops-and-azure-static-infrastructure
-      with:
-        armPath: $infrastructurePath
-        subscriptionId: $subscriptionId 
-        subscriptionService: $subscriptionService 
-        rgName: $rgName
-        rgLocation: $rgLocation
-        appiName: $appiName
-        kvName: $kvName
-        stName: $stName
-        workName: $workName
+    with:
+      armPath: $infrastructurePath
+      subscriptionId: $subscriptionId 
+      subscriptionService: $subscriptionService 
+      rgName: $rgName
+      rgLocation: $rgLocation
+      appiName: $appiName
+      kvName: $kvName
+      stName: $stName
+      workName: $workName
   
   production_Stage_deploy_landing_zone:
     if: (github.ref == 'refs/heads/main')
@@ -35,14 +35,14 @@ jobs:
     env:
       template: ./.github/variables/production.yml
     uses: goodtocode/goodtocode.github.io/.github/reusable-workflows/landingzone-infrastructure-steps.yml@3-create-devops-and-azure-static-infrastructure
-      with:
-        armPath: $infrastructurePath
-        subscriptionId: $subscriptionId 
-        subscriptionService: $subscriptionService 
-        rgName: $rgName
-        rgLocation: $rgLocation
-        appiName: $appiName
-        kvName: $kvName
-        stName: $stName
-        workName: $workName
+    with:
+      armPath: $infrastructurePath
+      subscriptionId: $subscriptionId 
+      subscriptionService: $subscriptionService 
+      rgName: $rgName
+      rgLocation: $rgLocation
+      appiName: $appiName
+      kvName: $kvName
+      stName: $stName
+      workName: $workName
                     
