@@ -32,3 +32,4 @@ jobs:
       kvName: 'kv-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
       stName: 'st-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
       workName: 'work-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
+    secrets: inherit
