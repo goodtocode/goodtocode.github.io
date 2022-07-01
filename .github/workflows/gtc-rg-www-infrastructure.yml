@@ -22,4 +22,4 @@ jobs:
     env:
       subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
       environmentInfix: 'dev'
-    uses: test.yml
+    uses: test111.yml
