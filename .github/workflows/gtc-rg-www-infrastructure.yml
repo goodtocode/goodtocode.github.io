@@ -22,4 +22,4 @@ jobs:
     env:
       subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
       environmentInfix: 'dev'
-    uses: goodtocode/goodtocode.github.io/.github/workflows/test.yml@3-create-devops-and-azure-static-infrastructure
+    uses: test.yml
