@@ -22,4 +22,4 @@ jobs:
     env:
       subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
       environmentInfix: 'dev'
-    uses: ./.github/workflows/test
+    uses: ./.github/workflows/test.yml

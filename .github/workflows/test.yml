@@ -1,5 +1,3 @@
-name: test.yml
-
 on:
   workflow_call:
 
