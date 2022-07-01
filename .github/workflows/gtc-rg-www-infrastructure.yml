@@ -14,7 +14,7 @@ env:
   subscriptionService: AZURE_SERVICE_CONNECTION
   infrastructurePath: ${{ github.workspace }}/.azure
 
-jobs:  
+jobs:
   development_landing_zone:
     if: (github.ref != 'refs/heads/main')
     runs-on: ubuntu-latest
@@ -22,14 +22,4 @@ jobs:
     env:
       subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
       environmentInfix: 'dev'
-    uses: goodtocode/goodtocode.github.io/.github/workflows/landingzone-infrastructure-steps.yml@3-create-devops-and-azure-static-infrastructure
-    with:
-      armPath: ${{ env.infrastructurePath }}
-      armSuffix: 'bicep'
-      rgName: '${{ env.companyInfix }}-rg-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-      rgLocation: ${{ env.rgLocation }}
-      appiName: 'appi-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-      kvName: 'kv-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-      stName: 'st-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-      workName: 'work-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-    secrets: inherit
+    uses: goodtocode/goodtocode.github.io/.github/workflows/test.yml@3-create-devops-and-azure-static-infrastructure

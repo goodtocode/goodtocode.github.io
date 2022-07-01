@@ -1,0 +1,9 @@
+name: test.yml
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    steps:
+    - uses: actions/checkout@v2
