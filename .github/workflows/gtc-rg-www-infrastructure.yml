@@ -5,27 +5,51 @@ on:
     paths:
     - .azure/*
     - .github/workflows/*
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: true
+        default: development
+        type: environment
+      environmentInflix:
+        description: 'environment (short name) for resources'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - dev
+        - prod
+      companyInflix:
+        description: 'Company abbreviation'
+        required: true 
+        type: string
+        default: 'gtc'
+      counterInflix:
+        description: 'Counter for resources'
+        required: true 
+        type: string
+        default: '001'
+      productInflix:
+        description: 'Product abbreviation'
+        required: true 
+        type: string
+        default: 'www'
+      rgLocation:
+        description: 'Location for resources'
+        required: true 
+        type: string
+        default: 'westus2'
 
 jobs:
   deploy_landing_zone:
-    env:  
-      companyInfix: 'gtc'
-      coutnerInfix: '001'
-      productInfix: 'www'
-      rgLocation: 'westus2'
-      subscriptionService: AZURE_SERVICE_CONNECTION
-      infrastructurePath: ${{ github.workspace }}/.azure
-      environment: development
-      subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
-      environmentInfix: 'dev'
     uses: ./.github/workflows/landingzone-infrastructure-steps.yml
     with:
-      armPath: ${{ env.infrastructurePath }}
+      armPath: '${{ github.workspace }}/.azure'
       armSuffix: 'bicep'
-      rgName: '${{ env.companyInfix }}-rg-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-      rgLocation: ${{ env.rgLocation }}
-      appiName: 'appi-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-      kvName: 'kv-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-      stName: 'st-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
-      workName: 'work-${{ env.productInfix }}-${{ env.environmentInfix }}-${{ env.coutnerInfix }}'
+      rgName: '${{ inputs.companyInflix }}-rg-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
+      rgLocation: ${{ inputs.rgLocation }}
+      appiName: 'appi-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
+      kvName: 'kv-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
+      stName: 'st-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
+      workName: 'work-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
     secrets: inherit
