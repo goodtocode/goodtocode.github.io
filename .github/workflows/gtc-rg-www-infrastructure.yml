@@ -6,11 +6,10 @@ on:
     - .azure/*
     - .github/workflows/*
 
+env:
+  subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
+  environmentInfix: 'dev'
+
 jobs:
   development_landing_zone:
-    if: (github.ref != 'refs/heads/main')
-    environment: development
-    env:
-      subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
-      environmentInfix: 'dev'
     uses: ./.github/workflows/test.yml
