@@ -20,7 +20,7 @@ on:
         description: 'Azure AD Service Principle (App Registration) to use for deployment - Default: secrets.AZURE_CREDENTIALS'
         required: false
         type: string
-        default: ${{ github.event.secrets.AZURE_CREDENTIALS  }}
+        default: ${{ github.event.secrets.AZURE_CREDENTIALS }}
       kvName:
         description: 'Name of the kv- resource to deploy - Example: kv-PRODUCT-ENVIRONMENT-001'
         required: true
@@ -43,7 +43,27 @@ on:
         type: string
 
 jobs:
-  build:
+  check-secret:
+      runs-on: ubuntu-latest
+      environment: development
+      outputs:
+        secret-exists: ${{ steps.secret-exists.outputs.defined }}
+      steps:
+          - id: secret-exists
+            if: "${{ github.event.inputs.azureCredentials != '' }}"
+            run: echo "::set-output name=defined::true"
+            env:
+                azureCredentials: ${{ github.event.secrets.AZURE_CREDENTIALS }}
+
+  error-secret:
+      runs-on: ubuntu-latest
+      environment: development
+      needs: [check-secret]
+      if: needs.check-secret.outputs.secret-exists != 'true'
+      steps:
+        - run: echo "AZURE_CREDENTIALS secret is required"
+
+  deploy_landingzone_step:
     runs-on: ubuntu-latest
     environment: development
     steps:
@@ -52,20 +72,20 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ github.event.inputs.azureCredentials }}
-    - name: Deploy ${{ github.event.inputs.stName  }}
+    - name: Deploy ${{ github.event.inputs.stName }}
       uses: Azure/cli@v1.0.0
       with:
-        inlineScript: az deployment group create --resource-group ${{ github.event.inputs.rgName }} --template-file ${{ github.event.inputs.armPath }}/st-storageaccount${{ github.event.inputs.armSuffix }} --parameters  ${{ github.event.inputs.armPath }}/st-storageaccount.parameters${{ github.event.inputs.armSuffix }} -name "${{ github.event.inputs.stName  }}"
-    - name: Deploy ${{ github.event.inputs.workName  }}
+        inlineScript: az deployment group create --resource-group ${{ github.event.inputs.rgName }} --template-file ${{ github.event.inputs.armPath }}/st-storageaccount${{ github.event.inputs.armSuffix }} --parameters  ${{ github.event.inputs.armPath }}/st-storageaccount.parameters${{ github.event.inputs.armSuffix }} -name "${{ github.event.inputs.stName }}"
+    - name: Deploy ${{ github.event.inputs.workName }}
       uses: Azure/cli@v1.0.0
       with:
-        inlineScript: az deployment group create --resource-group ${{ github.event.inputs.rgName }} --template-file ${{ github.event.inputs.armPath }}/work-loganalyticsworkspace${{ github.event.inputs.armSuffix }} --parameters  ${{ github.event.inputs.armPath }}/work-loganalyticsworkspace.parameters${{ github.event.inputs.armSuffix }} -name "${{ github.event.inputs.workName  }}"
-    - name: Deploy ${{ github.event.inputs.appiName  }}
+        inlineScript: az deployment group create --resource-group ${{ github.event.inputs.rgName }} --template-file ${{ github.event.inputs.armPath }}/work-loganalyticsworkspace${{ github.event.inputs.armSuffix }} --parameters  ${{ github.event.inputs.armPath }}/work-loganalyticsworkspace.parameters${{ github.event.inputs.armSuffix }} -name "${{ github.event.inputs.workName }}"
+    - name: Deploy ${{ github.event.inputs.appiName }}
       uses: Azure/cli@v1.0.0
       with:
-        inlineScript: az deployment group create --resource-group ${{ github.event.inputs.rgName }} --template-file ${{ github.event.inputs.armPath }}/appi-applicationinsights${{ github.event.inputs.armSuffix }} --parameters  ${{ github.event.inputs.armPath }}/appi-applicationinsights.parameters${{ github.event.inputs.armSuffix }} -name "${{ github.event.inputs.appiName  }}" -workName "${{ github.event.inputs.workName  }}"
-    - name: Deploy ${{ github.event.inputs.kvName  }}
+        inlineScript: az deployment group create --resource-group ${{ github.event.inputs.rgName }} --template-file ${{ github.event.inputs.armPath }}/appi-applicationinsights${{ github.event.inputs.armSuffix }} --parameters  ${{ github.event.inputs.armPath }}/appi-applicationinsights.parameters${{ github.event.inputs.armSuffix }} -name "${{ github.event.inputs.appiName }}" -workName "${{ github.event.inputs.workName }}"
+    - name: Deploy ${{ github.event.inputs.kvName }}
       uses: Azure/cli@v1.0.0
       with:
-        inlineScript: az deployment group create --resource-group ${{ github.event.inputs.rgName }} --template-file ${{ github.event.inputs.armPath }}/kv-keyvault${{ github.event.inputs.armSuffix }} --parameters  ${{ github.event.inputs.armPath }}/kv-keyvault.parameters${{ github.event.inputs.armSuffix }} -name "${{ github.event.inputs.kvName  }}"
+        inlineScript: az deployment group create --resource-group ${{ github.event.inputs.rgName }} --template-file ${{ github.event.inputs.armPath }}/kv-keyvault${{ github.event.inputs.armSuffix }} --parameters  ${{ github.event.inputs.armPath }}/kv-keyvault.parameters${{ github.event.inputs.armSuffix }} -name "${{ github.event.inputs.kvName }}"
                     
