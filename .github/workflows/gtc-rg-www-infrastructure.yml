@@ -42,12 +42,10 @@ on:
 
 jobs:
   deploy_landing_zone:
-    environment: development
     uses: ./.github/workflows/landingzone-infrastructure-steps.yml
     with:
       armPath: '${{ github.workspace }}/.azure'
       armSuffix: 'bicep'
-      azureCredentials: ${{ secrets.AZURE_CREDENTIALS  }}
       rgName: '${{ inputs.companyInflix }}-rg-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
       rgLocation: ${{ inputs.rgLocation }}
       appiName: 'appi-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
