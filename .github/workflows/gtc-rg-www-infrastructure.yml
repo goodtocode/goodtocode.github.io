@@ -8,6 +8,5 @@ on:
 
 jobs:
   development_landing_zone:
-    if: (github.ref != 'refs/heads/main')
     runs-on: ubuntu-latest
     uses: ./.github/workflows/test.yml
