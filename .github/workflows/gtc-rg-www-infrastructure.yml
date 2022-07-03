@@ -42,6 +42,7 @@ on:
 
 jobs:
   deploy_landing_zone:
+    environment: development
     uses: ./.github/workflows/landingzone-infrastructure-steps.yml
     with:
       armPath: '${{ github.workspace }}/.azure'
