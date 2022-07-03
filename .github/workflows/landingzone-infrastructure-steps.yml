@@ -45,6 +45,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: development
     steps:
     - uses: actions/checkout@v2
     - name: Azure Login
