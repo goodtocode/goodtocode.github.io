@@ -20,7 +20,7 @@ on:
         description: 'Azure AD Service Principle (App Registration) to use for deployment - Default: secrets.AZURE_CREDENTIALS'
         required: false
         type: string
-        default: ${{ secrets.AZURE_CREDENTIALS  }}         
+        default: ${{ secrets.AZURE_CREDENTIALS  }}
       kvName:
         description: 'Name of the kv- resource to deploy - Example: kv-PRODUCT-ENVIRONMENT-001'
         required: true
@@ -44,6 +44,7 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Azure Login
