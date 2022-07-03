@@ -6,19 +6,18 @@ on:
     - .azure/*
     - .github/workflows/*
 
-env:  
-  companyInfix: 'gtc'
-  coutnerInfix: '001'
-  productInfix: 'www'
-  rgLocation: 'westus2'
-  subscriptionService: AZURE_SERVICE_CONNECTION
-  infrastructurePath: ${{ github.workspace }}/.azure
-  environment: development
-  subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
-  environmentInfix: 'dev'
-
 jobs:
   deploy_landing_zone:
+    env:  
+      companyInfix: 'gtc'
+      coutnerInfix: '001'
+      productInfix: 'www'
+      rgLocation: 'westus2'
+      subscriptionService: AZURE_SERVICE_CONNECTION
+      infrastructurePath: ${{ github.workspace }}/.azure
+      environment: development
+      subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
+      environmentInfix: 'dev'
     uses: ./.github/workflows/landingzone-infrastructure-steps.yml
     with:
       armPath: ${{ env.infrastructurePath }}
