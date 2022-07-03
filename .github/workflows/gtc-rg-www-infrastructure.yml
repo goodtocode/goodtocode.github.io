@@ -13,7 +13,7 @@ env:
   rgLocation: 'westus2'
   subscriptionService: AZURE_SERVICE_CONNECTION
   infrastructurePath: ${{ github.workspace }}/.azure
-  environment: ${{ <expression> }} development
+  environment: development
   subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
   environmentInfix: 'dev'
 
