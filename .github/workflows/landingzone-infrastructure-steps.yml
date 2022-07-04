@@ -59,9 +59,9 @@ jobs:
       runs-on: ubuntu-latest
       environment: development
       needs: [check-secret]
-      if: "${{ (needs.check-secret.outputs.secret-exists != 'true') && contains(github.event.inputs.azureCredentials, 'clientId') && contains(github.event.inputs.azureCredentials, 'clientSecret') && contains(github.event.inputs.azureCredentials, 'subscriptionId') && contains(github.event.inputs.azureCredentials, 'tenantId') }}"
+      if: "${{ (needs.check-secret.outputs.secret-exists == 'true') && contains(github.event.inputs.azureCredentials, 'clientId') && contains(github.event.inputs.azureCredentials, 'clientSecret') && contains(github.event.inputs.azureCredentials, 'subscriptionId') && contains(github.event.inputs.azureCredentials, 'tenantId') }}"
       steps:
-        - run: echo "azureCredentials secret is required"
+        - run: echo "azureCredentials has properties"
 
   deploy_landingzone_step:
     runs-on: ubuntu-latest
