@@ -51,9 +51,9 @@ jobs:
       steps:
           - id: secret-exists
             if: "${{ github.event.inputs.azureCredentials != '' }}"
-            run: echo "::set-output name=defined::true"
+            run: echo "azureCredentials exists"
             env:
-                azureCredentials: ${{ github.event.secrets.AZURE_CREDENTIALS }}
+                otherEnv: ${{ github.event.secrets.AZURE_CREDENTIALS }}
 
   error-secret:
       runs-on: ubuntu-latest
@@ -61,11 +61,12 @@ jobs:
       needs: [check-secret]
       if: needs.check-secret.outputs.secret-exists != 'true'
       steps:
-        - run: echo "AZURE_CREDENTIALS secret is required"
+        - run: echo "azureCredentials secret is required"
 
   deploy_landingzone_step:
     runs-on: ubuntu-latest
     environment: development
+    needs: [check-secret]
     steps:
     - uses: actions/checkout@v2
     - name: Azure Login
