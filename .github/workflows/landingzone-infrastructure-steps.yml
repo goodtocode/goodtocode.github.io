@@ -50,7 +50,7 @@ jobs:
         secret-exists: ${{ steps.secret-exists.outputs.defined }}
       steps:
           - id: secret-exists
-            if: "${{ github.event.inputs.azureCredentials != '' }}"
+            if: ${{ github.event.inputs.azureCredentials != '' }}
             run: echo "azureCredentials exists"
             env:
                 otherEnv: ${{ github.event.secrets.AZURE_CREDENTIALS }}
@@ -59,7 +59,7 @@ jobs:
       runs-on: ubuntu-latest
       environment: development
       needs: [check-secret]
-      if: needs.check-secret.outputs.secret-exists != 'true'
+      if: "${{ (needs.check-secret.outputs.secret-exists != 'true') && contains(github.event.inputs.azureCredentials, 'clientId') && contains(github.event.inputs.azureCredentials, 'clientSecret') && contains(github.event.inputs.azureCredentials, 'subscriptionId') && contains(github.event.inputs.azureCredentials, 'tenantId') }}"
       steps:
         - run: echo "azureCredentials secret is required"
 
