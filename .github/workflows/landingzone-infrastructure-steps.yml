@@ -47,21 +47,25 @@ jobs:
       runs-on: ubuntu-latest
       environment: development
       outputs:
-        secret-exists: ${{ steps.secret-exists.outputs.defined }}
+        secret-exists: ${{ steps.secret-exists.outputs.notEmpty }}
       steps:
           - id: secret-exists
             if: ${{ github.event.inputs.azureCredentials != '' }}
-            run: echo "azureCredentials exists"
+            run: echo "::set-output name=notEmpty::true"
             env:
-                otherEnv: ${{ github.event.secrets.AZURE_CREDENTIALS }}
+                azCreds: ${{ github.event.secrets.AZURE_CREDENTIALS }}
+                clientIdExists: ${{ contains(github.event.inputs.azureCredentials, 'clientId') }}
+                secretExists: ${{ contains(github.event.inputs.azureCredentials, 'clientSecret') }}
+                subscriptionIdExists: ${{ contains(github.event.inputs.azureCredentials, 'subscriptionId') }}
+                tenantIdExists: ${{ contains(github.event.inputs.azureCredentials, 'tenantId') }}
 
   error-secret:
       runs-on: ubuntu-latest
       environment: development
       needs: [check-secret]
-      if: "${{ (needs.check-secret.outputs.secret-exists == 'true') && contains(github.event.inputs.azureCredentials, 'clientId') && contains(github.event.inputs.azureCredentials, 'clientSecret') && contains(github.event.inputs.azureCredentials, 'subscriptionId') && contains(github.event.inputs.azureCredentials, 'tenantId') }}"
+      if: "${{ (needs.check-secret.outputs.secret-exists != 'true') || (clientIdExists != true) || (secretExists != true) || (subscriptionIdExists != true) || (tenantIdExists != true) }}"
       steps:
-        - run: echo "azureCredentials has properties"
+        - run: echo ${{ azCreds }}
 
   deploy_landingzone_step:
     runs-on: ubuntu-latest
