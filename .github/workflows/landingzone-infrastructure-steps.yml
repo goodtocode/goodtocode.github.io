@@ -81,7 +81,7 @@ jobs:
       needs: [check-inputs]
       if: "${{ (needs.check-inputs.outputs.secret-exists != 'true') || (needs.check-inputs.outputs.clientId-exists != 'true') || (needs.check-inputs.outputs.clientSecret-exists != 'true') || (needs.check-inputs.outputs.subscriptionId-exists != 'true') || (needs.check-inputs.outputs.tenantId-exists-exists != 'true') }}"
       steps:
-        - run: echo ${{ github.event.inputs.azureCredentials }} ${{ toJson(github.event.inputs.azureCredentials) }}  ${{ fromJson(github.event.inputs.azureCredentials) }}
+        - run: echo ---${{ github.event.inputs.azureCredentials }}---
 
   deploy_landingzone_step:
     runs-on: ubuntu-latest
