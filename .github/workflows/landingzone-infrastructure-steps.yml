@@ -16,11 +16,6 @@ on:
         required: false
         type: string
         default: 'json'
-      azureCredentials:
-        description: 'Azure AD Service Principle (App Registration) to use for deployment - Default: secrets.AZURE_CREDENTIALS'
-        required: false
-        type: string
-        default: ${{ github.event.secrets.AZURE_CREDENTIALS }}
       kvName:
         description: 'Name of the kv- resource to deploy - Example: kv-PRODUCT-ENVIRONMENT-001'
         required: true
@@ -41,7 +36,12 @@ on:
         description: 'Name of the work- resource to deploy - Example: work-PRODUCT-ENVIRONMENT-001'
         required: true
         type: string
-
+    secrets:
+      azureCredentials:
+        description: 'Azure AD Service Principle (App Registration) to use for deployment - Default: secrets.AZURE_CREDENTIALS'
+        required: true
+        type: string
+        default: ${{ github.event.secrets.AZURE_CREDENTIALS }}
 jobs:
   validate-inputs:
       runs-on: ubuntu-latest

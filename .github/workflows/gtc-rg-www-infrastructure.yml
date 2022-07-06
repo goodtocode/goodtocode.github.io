@@ -52,4 +52,5 @@ jobs:
       kvName: 'kv-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
       stName: 'st-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
       workName: 'work-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
-    secrets: inherit
+    secrets:
+      azureCredentials: ${{ secrets.AZURE_CREDENTIALS }}
