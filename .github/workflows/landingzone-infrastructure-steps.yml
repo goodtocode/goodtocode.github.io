@@ -40,7 +40,6 @@ on:
       azureCredentials:
         description: 'Azure AD Service Principle (App Registration) to use for deployment - Default: secrets.AZURE_CREDENTIALS'
         required: true
-        type: string
 
 jobs:
   validate-inputs:
