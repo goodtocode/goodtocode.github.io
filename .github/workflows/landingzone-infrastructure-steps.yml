@@ -41,7 +41,7 @@ on:
         description: 'Azure AD Service Principle (App Registration) to use for deployment - Default: secrets.AZURE_CREDENTIALS'
         required: true
         type: string
-        default: ${{ github.event.secrets.AZURE_CREDENTIALS }}
+
 jobs:
   validate-inputs:
       runs-on: ubuntu-latest
