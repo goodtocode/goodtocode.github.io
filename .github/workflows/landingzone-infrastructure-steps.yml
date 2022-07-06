@@ -43,50 +43,22 @@ on:
         type: string
 
 jobs:
-  check-inputs:
+  validate-inputs:
       runs-on: ubuntu-latest
       environment: development
       outputs:
         creds-exists: ${{ steps.secret-exists.outputs.credsExist }}
-        azCreds: ${{ steps.secret-exists.outputs.credsExist }}
-        clientId-exists: ${{ steps.secret-exists.outputs.clientIdExist }}
-        clientSecret-exists: ${{ steps.secret-exists.outputs.clientSecretExist }}
-        subscriptionId-exists: ${{ steps.secret-exists.outputs.subscriptionIdExist }}
-        tenantId-exists: ${{ steps.secret-exists.outputs.tenantIdExist }}
       steps:
           - id: creds-exists
             if: ${{ github.event.inputs.azureCredentials != '' }}
             run: |
               echo "::set-output name=credsExist::true"
-          - id: clientId-exists
-            if: ${{ contains(github.event.inputs.azureCredentials, 'clientId') }}
-            run: |
-              echo "::set-output name=clientIdExist::true"
-          - id: clientSecret-exists
-            if: ${{ contains(github.event.inputs.azureCredentials, 'clientSecret') }}
-            run: |
-              echo "::set-output name=clientSecretExist::true"
-          - id: subscriptionId-exists
-            if: ${{ contains(github.event.inputs.azureCredentials, 'subscriptionId') }}
-            run: |
-              echo "::set-output name=subscriptionIdExist::true"
-          - id: tenantId-exists
-            if: ${{ contains(github.event.inputs.azureCredentials, 'tenantId') }}
-            run: |
-              echo "::set-output name=tenantIdExist::true"
-
-  validate-inputs:
-      runs-on: ubuntu-latest
-      environment: development
-      needs: [check-inputs]
-      if: "${{ (needs.check-inputs.outputs.secret-exists != 'true') || (needs.check-inputs.outputs.clientId-exists != 'true') || (needs.check-inputs.outputs.clientSecret-exists != 'true') || (needs.check-inputs.outputs.subscriptionId-exists != 'true') || (needs.check-inputs.outputs.tenantId-exists-exists != 'true') }}"
-      steps:
-        - run: echo ---${{ github.event.inputs.azureCredentials }}---
 
   deploy_landingzone_step:
     runs-on: ubuntu-latest
     environment: development
     needs: [validate-inputs]
+    if: "${{ (needs.validate-inputs.outputs.creds-exists == 'true')"
     steps:
     - uses: actions/checkout@v2
     - name: Azure Login
