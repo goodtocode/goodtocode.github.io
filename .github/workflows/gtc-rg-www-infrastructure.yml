@@ -67,4 +67,4 @@ jobs:
       stName: 'st-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
       workName: 'work-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
     secrets:
-      azureCredentials: '${{ env.azcredentials }}'
+      azureCredentials: $azcredentials
