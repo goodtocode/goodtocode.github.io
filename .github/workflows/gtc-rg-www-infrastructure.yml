@@ -49,10 +49,11 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v1
       with:
-        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"620122a3-e07f-4bcf-ac5f-45c0ffea24c7","tenantId":"ad6529dd-8db1-4015-a53d-6ae395fc7e39"}'
+        creds: '{"clientId":"asdf","clientSecret":"asdf","subscriptionId":"620122a3-e07f-4bcf-ac5f-45c0ffea24c7","tenantId":"ad6529dd-8db1-4015-a53d-6ae395fc7e39"}'
 
 
   deploy_landing_zone:
+    depends-on: [az_login]
     uses: ./.github/workflows/landingzone-infrastructure-steps.yml
     with:
       armPath: '${{ github.workspace }}/.azure'
