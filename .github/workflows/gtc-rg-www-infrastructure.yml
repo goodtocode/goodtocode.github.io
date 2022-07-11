@@ -55,7 +55,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - if: ${{ env.client_id == '85c6a127-ff79-4c86-9522-67262bc82b02' }}
-        run: echo 'MATCH!'
+        run: echo 'C MATCH!'
+      - if: ${{ env.client_id != '85c6a127-ff79-4c86-9522-67262bc82b02' }}
+        run: echo 'C DOES NOT match!'
+      - if: ${{ env.tenant_id == 'ad6529dd-8db1-4015-a53d-6ae395fc7e39' }}
+        run: echo 'T MATCH!'
       - name: Azure Login
         uses: Azure/login@v1
         with:
