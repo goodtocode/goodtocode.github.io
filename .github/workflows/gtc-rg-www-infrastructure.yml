@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - if: ${{ env.client_id == '85c6a127-ff79-4c86-9522-67262bc82b02' }}
-        run: echo 'C MATCH!'
+        run: echo 'C MATCH! ${{ env.client_id }} "${{ env.client_id }}"'
       - if: ${{ env.client_id != '85c6a127-ff79-4c86-9522-67262bc82b02' }}
         run: echo 'C DOES NOT match!'
       - if: ${{ env.tenant_id == 'ad6529dd-8db1-4015-a53d-6ae395fc7e39' }}
