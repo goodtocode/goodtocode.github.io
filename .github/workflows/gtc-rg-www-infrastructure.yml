@@ -53,7 +53,7 @@ jobs:
 
 
   deploy_landing_zone:
-    depends-on: [az_login]
+    needs: [az_login]
     uses: ./.github/workflows/landingzone-infrastructure-steps.yml
     with:
       armPath: '${{ github.workspace }}/.azure'
