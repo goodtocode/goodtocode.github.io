@@ -42,16 +42,15 @@ on:
 
 env:
   azcredentials: ${{ secrets.AZURE_CREDENTIALS }}
+  client_id: ${{ secrets.CLIENT_ID }}
+  tenant_id: ${{ secrets.TENANT_ID }}
+  subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
+  client_secret: ${{ secrets.CLIENT_SECRET }}
 
 jobs:
   az_login:
     runs-on: ubuntu-latest
     environment: development
-    env:
-      client_id: ${{ secrets.CLIENT_ID }}
-      tenant_id: ${{ secrets.TENANT_ID }}
-      subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
-      client_secret: ${{ secrets.CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v2
       - if: ${{ env.client_id == '85c6a127-ff79-4c86-9522-67262bc82b02' }}
