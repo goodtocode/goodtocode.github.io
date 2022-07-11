@@ -40,6 +40,9 @@ on:
         type: string
         default: 'westus2'
 
+env:
+  azureCredentials: ${{ secrets.AZURE_CREDENTIALS }}
+
 jobs:
   az_login:
     runs-on: ubuntu-latest
@@ -53,8 +56,6 @@ jobs:
 
   deploy_landing_zone:
     needs: [az_login]
-    env:
-      azureCredentials: ${{ secrets.AZURE_CREDENTIALS }}
     uses: ./.github/workflows/landingzone-infrastructure-steps.yml
     with:
       armPath: '${{ github.workspace }}/.azure'
