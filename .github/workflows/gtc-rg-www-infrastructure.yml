@@ -41,7 +41,7 @@ on:
         default: 'westus2'
 
 env:
-  azureCredentials: ${{ secrets.AZURE_CREDENTIALS }}
+  azcredentials: ${{ secrets.AZURE_CREDENTIALS }}
 
 jobs:
   az_login:
@@ -67,4 +67,4 @@ jobs:
       stName: 'st-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
       workName: 'work-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
     secrets:
-      azureCredentials: ${{ env.azureCredentials }}
+      azureCredentials: '${{ env.azcredentials }}'
