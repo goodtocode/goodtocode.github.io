@@ -63,9 +63,10 @@ jobs:
         run: echo 'S MATCH!'
       - name: Azure Login
         uses: Azure/login@v1
-        with:
-          creds: '{"tenantId":"ad6529dd-8db1-4015-a53d-6ae395fc7e39","clientId":"${{ env.client_id }}","clientSecret":"${{ env.client_secret }}","subscriptionId":"${{ env.subscription_id }}"}'
-          enable-AzPSSession: true
+        with:          
+          client-id: ${{ env.client_id }}
+          tenant-id: ${{ env.tenant_id }}
+          subscription-id: ${{ secreenvts.subscription_id }}
 
   deploy_landing_zone:
     needs: [az_login]
