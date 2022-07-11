@@ -53,6 +53,8 @@ jobs:
 
   deploy_landing_zone:
     needs: [az_login]
+    env:
+      azureCredentials: ${{ secrets.AZURE_CREDENTIALS }}
     uses: ./.github/workflows/landingzone-infrastructure-steps.yml
     with:
       armPath: '${{ github.workspace }}/.azure'
@@ -64,4 +66,4 @@ jobs:
       stName: 'st-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
       workName: 'work-${{ inputs.productInflix }}-${{ inputs.environmentInflix }}-${{ inputs.coutnerInflix }}'
     secrets:
-      azureCredentials: ${{ secrets.AZURE_CREDENTIALS }}
+      azureCredentials: ${{ env.azureCredentials }}
