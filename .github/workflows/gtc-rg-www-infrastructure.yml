@@ -48,11 +48,18 @@ jobs:
     runs-on: ubuntu-latest
     environment: development
     env:
-      super_secret: ${{ secrets.CLIENT_ID }}
+      client_id: ${{ secrets.CLIENT_ID }}
+      tenant_id: ${{ secrets.TENANT_ID }}
+      subscription_id: ${{ secrets.SUBSCRIPTION_ID }}
+      client_secret: ${{ secrets.CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v2
-      - if: ${{ env.super_secret == '85c6a127-ff79-4c86-9522-67262bc82b02' }}
+      - if: ${{ env.client_id == '85c6a127-ff79-4c86-9522-67262bc82b02' }}
         run: echo 'MATCH!'
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          creds: '{"clientId":"${{ env.client_id }}","clientSecret":"${{ env.client_secret }}","subscriptionId":"${{ env.subscription_id }}","tenantId":"${{ env.tenant_id }}"}'
 
   deploy_landing_zone:
     needs: [az_login]
