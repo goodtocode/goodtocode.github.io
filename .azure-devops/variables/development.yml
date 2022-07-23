@@ -1,0 +1,21 @@
+variables:
+  - group: gtc-rg-www-dev
+  - template: common.yml
+  - name: rgEnvironment
+    value: 'Development'
+  - name: rgName
+    value: 'gtc-rg-www-dev-001'
+  - name: rgLocation
+    value: 'West US 2'
+  - name: 'appiName'
+    value: 'appi-www-dev-001'
+  - name: 'kvName'
+    value: 'kv-www-dev-001'
+  - name: stName
+    value: 'stwwwdev001'
+  - name: stappName
+    value: 'stapp-www-dev-001'
+  - name: stappSku
+    value: 'Free'
+  - name: workName
+    value: 'work-www-dev-001'

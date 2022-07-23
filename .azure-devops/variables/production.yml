@@ -1,0 +1,21 @@
+variables:
+  - group: gtc-rg-www-prod
+  - template: common.yml
+  - name: rgEnvironment
+    value: 'Production'
+  - name: rgName
+    value: 'gtc-rg-www-prod-001'
+  - name: rgLocation
+    value: 'West US 2'
+  - name: 'appiName'
+    value: 'appi-www-prod-001'
+  - name: 'kvName'
+    value: 'kv-www-prod-001'
+  - name: stName
+    value: 'stwwwprod001'
+  - name: stappName
+    value: 'stapp-www-prod-001'
+  - name: stappSku
+    value: 'Standard'
+  - name: workName
+    value: 'work-www-prod-001'
