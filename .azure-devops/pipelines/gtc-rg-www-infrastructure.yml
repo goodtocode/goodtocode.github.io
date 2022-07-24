@@ -19,7 +19,7 @@ pool:
 parameters:
   - name: subscriptionId
     type: string
-    default: "$(SubscriptionId)"
+    default: "$(subscriptionId)"
   - name: subscriptionService 
     type: string 
     default: "gtc-www-001"
