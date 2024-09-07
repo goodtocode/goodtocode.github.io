@@ -62,7 +62,7 @@ module stModule '../modules/st-storageaccount.bicep' = {
 }
 
 module apiModule '../modules/stapp-staticwebapp.bicep' = {
-  name: 'apiModuleName'
+  name: 'stappModuleName'
   params:{
     name: stappName
     location: location    

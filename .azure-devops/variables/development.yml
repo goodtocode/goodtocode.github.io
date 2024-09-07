@@ -1,7 +1,7 @@
 variables:
   - group: gtc-rg-www-dev
   - template: common.yml
-  - name: rgEnvironment
+  - name: environmentApp
     value: 'Development'
   - name: rgName
     value: 'gtc-rg-www-dev-001'
