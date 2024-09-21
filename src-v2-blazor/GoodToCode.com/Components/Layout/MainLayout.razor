@@ -1,15 +1,27 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
+    <div>
         <NavMenu />
     </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-5 left-wrapper">
+                    <div class="text-container">
+                        <h2>Innovating solutions and contributing to the tech community</h2>
+                    </div>
+                </div>
+                <div class="col-xl-7 right-wrapper">
+                    <div class="text-container">
+                        <h1 id="js-rotating" class="h1-large">ANALYTICS, DEVOPS, AZURE, .NET</h1>
+                    </div>
+                </div>
+            </div>
         </div>
-
+    </header> <!-- end of header -->
+    <main>
         <article class="content px-4">
             @Body
         </article>
@@ -21,3 +33,14 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+<!-- Scripts -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/morphext.min.js"></script>
+<!-- Custom -->
+<script src="js/github-card.js"></script>
+<script src="js/scripts.js"></script>
