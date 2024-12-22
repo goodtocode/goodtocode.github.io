@@ -661,6 +661,7 @@ input[type='checkbox'] {
     padding-top: 12rem;
     padding-bottom: 7rem;
     overflow: hidden;
+    max-height: 60em;
 }
 
     .basic-2 h2 {
@@ -691,6 +692,7 @@ input[type='checkbox'] {
     overflow: hidden;
     padding-top: 7rem;
     padding-bottom: 9rem;
+    max-height: 60em;
 }
 
     .basic-3 h2 {
