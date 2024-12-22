@@ -1,7 +1,7 @@
 variables:
   - group: gtc-rg-www-prod
   - template: common.yml
-  - name: rgEnvironment
+  - name: environmentApp
     value: 'Production'
   - name: rgName
     value: 'gtc-rg-www-prod-001'
