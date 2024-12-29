@@ -1,9 +1,9 @@
-@namespace Oqtane.Themes.GoodToCodeTheme
+@namespace GoodToCode.Themes.DarkTheme
 @inherits ThemeBase
 @inject ISettingService SettingService
 
 <main role="main">
-    <nav class="navbar navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-dark navbar-bg-primary-gradient fixed-top">
         <Logo UseSiteNameAsFallback="true" />
         <Menu Orientation="Horizontal" />
         <div class="controls ms-auto">
@@ -112,7 +112,7 @@
 </main>
 
 @code {
-    public override string Name => "Default Theme";
+    public override string Name => "GTC Dark Theme";
 
     public override string Panes => PaneNames.Default + ",Top Full Width,Top 100%,Left 50%,Right 50%,Left 33%,Center 33%,Right 33%,Left Outer 25%,Left Inner 25%,Right Inner 25%,Right Outer 25%,Left 25%,Center 50%,Right 25%,Left Sidebar 66%,Right Sidebar 33%,Left Sidebar 33%,Right Sidebar 66%,Bottom 100%,Bottom Full Width,Footer";
 
@@ -134,5 +134,13 @@
             // error loading theme settings
         }
     }
+
+    public override List<Resource> Resources => new List<Resource>()
+    {
+		// obtained from https://cdnjs.com/libraries    
+        //new Stylesheet("https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css", "sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==", "anonymous"),
+        //new Stylesheet(ThemePath() + "Theme.css"),
+        //new Script(Constants.BootstrapScriptUrl, Constants.BootstrapScriptIntegrity, "anonymous")
+    };
 
 }

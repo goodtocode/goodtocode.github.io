@@ -33,16 +33,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Themes\GoodToCodeTheme\Containers\Container.razor">
+    <Content Update="Themes\DarkTheme\Containers\Container.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
-    <Content Update="Themes\GoodToCodeTheme\Containers\ContainerSettings.razor">
+    <Content Update="Themes\DarkTheme\Containers\ContainerSettings.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
-    <Content Update="Themes\GoodToCodeTheme\Themes\Default.razor">
+    <Content Update="Themes\DarkTheme\Themes\Default.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
-    <Content Update="Themes\GoodToCodeTheme\Themes\ThemeSettings.razor">
+    <Content Update="Themes\DarkTheme\Themes\ThemeSettings.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
   </ItemGroup>

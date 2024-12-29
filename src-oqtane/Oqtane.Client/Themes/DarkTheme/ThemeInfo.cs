@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using Oqtane.Documentation;
 using Oqtane.Models;
 using Oqtane.Shared;
+using Oqtane.Themes;
 
-namespace Oqtane.Themes.GoodToCodeTheme
+namespace GoodToCode.Themes.DarkTheme
 {
     [PrivateApi("Mark Build-In Theme-Info classes as private, since it's not very useful in the public docs")]
     public class ThemeInfo : ITheme
@@ -12,8 +13,8 @@ namespace Oqtane.Themes.GoodToCodeTheme
         {
             Name = "GoodToCode Theme",
             Version = "1.0.0",
-            ThemeSettingsType = "Oqtane.Themes.GoodToCodeTheme.ThemeSettings, Oqtane.Client",
-            ContainerSettingsType = "Oqtane.Themes.GoodToCodeTheme.ContainerSettings, Oqtane.Client",
+            ThemeSettingsType = "GoodToCode.Themes.DarkTheme.ThemeSettings, Oqtane.Client",
+            ContainerSettingsType = "GoodToCode.Themes.DarkTheme.ContainerSettings, Oqtane.Client",
             Resources = new List<Resource>()
             {
 		        // obtained from https://cdnjs.com/libraries
