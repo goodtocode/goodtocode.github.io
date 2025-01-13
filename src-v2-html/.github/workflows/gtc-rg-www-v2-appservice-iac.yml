@@ -1,17 +1,17 @@
-name: gtc-rg-www-stapp-iac
+name: gtc-rg-www-appservice-ci-cd
 
 on:
   push:
     branches-ignore:
-      - main
+      - '*'
     paths:
       - .github/workflows/gtc-rg-www-infrastructure.yml
       - .azure/**/*.bicep
       - .azure/**/*.bicepparams
   pull_request:
     types: [closed]
-    branches:
-      - main
+    branches-ignore:
+      - '*'
     paths:
       - .github/workflows/gtc-rg-www-infrastructure.yml
       - .azure/**/*.bicep
@@ -45,8 +45,8 @@ jobs:
       PRODUCT_RG_LOCATION: "westus2"
       PRODUCT_RG_NAME: "gtc-rg-www-dev-001"
       KEYVAULT_NAME: "kv-www-dev-001"
-      PRODUCT_BICEP_TEMPLATE: ".azure/templates/landingzone-stapp.bicep"
-      PRODUCT_BICEP_PARAMETERS: ".azure/variables/landingzone-stapp-development.bicepparam"
+      PRODUCT_BICEP_TEMPLATE: ".azure/templates/landingzone-appservicesql.bicep"
+      PRODUCT_BICEP_PARAMETERS: ".azure/variables/landingzone-appservice-development.bicepparam"
     steps:
       - name: Checkout
         uses: actions/checkout@v3

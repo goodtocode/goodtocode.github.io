@@ -87,25 +87,17 @@
                                 <div class="container-fluid">
                                     <!-- rendermode: Static --><section id="counts" class="counts">
                                         <div class="container d-flex flex-wrap justify-content-between align-items-center" style="animation: fade-up 1s ease; gap: 1rem;">
-                                            <div class="count-box d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
-                                                <i class="bi bi-people"></i>
-                                                <span>57</span>
-                                                <p>Contributors</p>
+                                            <div class="d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
+                                                <p>Semantic Kernel Quick-start</p>
                                             </div>
-                                            <div class="count-box d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
-                                                <i class="bi bi-star"></i>
-                                                <span>1922</span>
-                                                <p>Stars</p>
+                                            <div class="d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
+                                                <p>Semantic Kernel Quick-start</p>
                                             </div>
-                                            <div class="count-box d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
-                                                <i class="bi bi-speedometer2"></i>
-                                                <span>6152</span>
-                                                <p>Commits</p>
+                                            <div class="d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
                                             </div>
-                                            <div class="count-box d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
-                                                <i class="bi bi-box-arrow-up"></i>
-                                                <span>2743</span>
-                                                <p>Pull Requests</p>
+                                            <div class="d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
+                                            </div>
+                                            <div class="d-flex flex-column align-items-center" style="flex: 1; min-width: 250px; padding: 1rem;">
                                             </div>
                                         </div>
                                     </section>
@@ -154,18 +146,19 @@
     <script src="js/app.js"></script>
     <script src="js/loadjs.min.js"></script>
     <script src="js/interop.js"></script>
-    <script>// Blazor Static Rendering Scroll Position
-    window.interceptNavigation = () => {
-        let currentUrl = window.location.pathname;
-        Blazor.addEventListener('enhancedload', () => {
-            let newUrl = window.location.pathname;
-            if (currentUrl !== newUrl || window.location.hash === '#top') {
-                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-            }
-            currentUrl = newUrl;
-        });
-    };
-    document.onload += window.interceptNavigation();</script>
+    <script>
+    // Blazor Static Rendering Scroll Position
+        window.interceptNavigation = () => {
+            let currentUrl = window.location.pathname;
+            Blazor.addEventListener('enhancedload', () => {
+                let newUrl = window.location.pathname;
+                if (currentUrl !== newUrl || window.location.hash === '#top') {
+                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                }
+                currentUrl = newUrl;
+            });
+        };
+        document.onload += window.interceptNavigation();</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous"></script>
     <page-script src="./js/reload.js"></page-script>
     <!-- Visual Studio Browser Link -->

@@ -2,12 +2,12 @@ name: gtc-rg-www-stapp-ci-cd
 
 on:
   push:
-    branches:
-      - main
+    branches-ignore:
+      - '*'
   pull_request:
     types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
+    branches-ignore:
+      - '*'
   workflow_dispatch:
     inputs:
       environment:
