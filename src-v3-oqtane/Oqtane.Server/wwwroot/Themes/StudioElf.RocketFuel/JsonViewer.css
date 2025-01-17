@@ -1,0 +1,48 @@
+﻿pre {
+    white-space: pre-wrap; /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+.json {
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: var(--bs-body-bg-rgb);
+/*    padding: 10px;
+    border-radius: 5px;*/
+}
+.json-object {
+    color: var(--bs-orange);
+    font-weight: bold;
+}
+.json-array {
+    color: var(--bs-info);
+    font-weight: bold;
+}
+.json-key {
+    color: var(--bs-primary);
+    font-weight: bold;
+}
+
+.json-string {
+    color: var(--bs-body-color);
+}
+
+.json-number {
+    color: var(--bs-success);
+}
+
+.json-boolean {
+    color: var(--bs-warning);
+}
+
+.json-null {
+    color: var(--bs-gray-600);
+}
+
+.json-value {
+    color: var(--bs-dark);
+}
