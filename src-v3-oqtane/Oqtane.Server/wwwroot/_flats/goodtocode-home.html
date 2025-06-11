@@ -120,12 +120,12 @@
                 </section>
 
                 <!-- Light Theme Product Highlight Section -->
-                <section class="py-5 bg-light">
+                <section class="py-5 bg-light mb-5 rounded-4 shadow-sm">
                     <div class="container">
                         <div class="row justify-content-center mb-4">
                             <div class="col-lg-8 text-center">
                                 <h2 class="fw-bold mb-3 text-dark">Featured Products</h2>
-                                <p class="lead text-secondary">Accelerate your AI development with our Semantic Kernel
+                                <p class="lead text-muted">Accelerate your AI development with our Semantic Kernel
                                     Quick-start templates for Blazor and Web API.</p>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                                     <div class="card-body text-center">
                                         <h5 class="card-title fw-semibold text-primary mb-3">Semantic Kernel Quick-start
                                             for Blazor</h5>
-                                        <p class="card-text text-secondary mb-4">
+                                        <p class="card-text text-muted mb-4">
                                             Jumpstart your Blazor projects with integrated Semantic Kernel AI
                                             capabilities and best practices.
                                         </p>
@@ -151,7 +151,7 @@
                                     <div class="card-body text-center">
                                         <h5 class="card-title fw-semibold text-primary mb-3">Semantic Kernel Quick-start
                                             for Web API</h5>
-                                        <p class="card-text text-secondary mb-4">
+                                        <p class="card-text text-muted mb-4">
                                             Quickly build robust Web APIs powered by Semantic Kernel for scalable
                                             AI-driven solutions.
                                         </p>
@@ -167,13 +167,47 @@
                 </section>
                 <!-- End Light Theme Product Highlight Section -->
 
-                <!-- Example: About Section (optional) -->
-                <section id="about" class="mb-5">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 text-center">
-                            <h2>About GoodToCode</h2>
-                            <p class="lead">We empower developers and organizations to build innovative solutions and
-                                foster a collaborative tech community.</p>
+                <!-- About Section -->
+                <section id="about" class="py-5 mb-5 bg-light rounded-4 shadow-sm">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center">
+                                <h2 class="mb-3 text-dark">GoodToCode</h2>
+                                <p class="lead text-dark">
+                                    We empower developers and organizations to build innovative solutions and foster a
+                                    collaborative tech community.
+                                </p>
+                                <div class="my-4">
+                                    <ul class="list-unstyled mb-3 text-dark">
+                                        <li><strong>Location:</strong> Orange County, California, USA</li>
+                                        <li><strong>Time Zone:</strong> (UTC-8:00) Pacific Time</li>
+                                    </ul>
+                                    <div class="d-flex justify-content-center gap-3 mb-2">
+                                        <a href="https://twitter.com/gooodtocode" target="_blank" rel="noopener"
+                                            aria-label="Twitter">
+                                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg"
+                                                alt="Twitter" class="icon-invert">
+                                        </a>
+                                        <a href="https://www.linkedin.com/in/robertjgood" target="_blank" rel="noopener"
+                                            aria-label="LinkedIn">
+                                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
+                                                alt="LinkedIn" class="icon-invert">
+                                        </a>
+                                        <a href="mailto:robert.good@goodtocode.com" aria-label="Email">
+                                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/maildotru.svg"
+                                                alt="Email" class="icon-invert">
+                                        </a>
+                                    </div>
+                                    <div class="text-muted small">
+                                        Twitter: <a href="https://twitter.com/gooodtocode" target="_blank"
+                                            rel="noopener">@gooodtocode</a><br>
+                                        LinkedIn: <a href="https://www.linkedin.com/in/robertjgood" target="_blank"
+                                            rel="noopener">robertjgood</a><br>
+                                        Email: <a
+                                            href="mailto:robert.good@goodtocode.com">robert.good@goodtocode.com</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -198,8 +232,7 @@
         }
 
         .hero-bg-dark {
-            background-color: #212529 !important;
-            background-opacity: 0.75;
+            background-color: rgba(33, 37, 41, 0.75) !important;
             border-radius: 0.5rem;
         }
 
@@ -213,6 +246,12 @@
             opacity: 0.5;
             border-radius: 0.5rem;
             z-index: 1;
+        }
+
+        .icon-invert {
+            width: 32px;
+            height: 32px;
+            filter: invert(0.7);
         }
     </style>
 
