@@ -19,7 +19,6 @@
     <link id="app-stylesheet-module">
     <title>Home - GoodToCode</title>
     <link id="app-favicon" rel="icon" type="image/x-icon" href="favicon.ico">
-
 </head>
 
 <body>
@@ -81,8 +80,7 @@
             <div class="container">
                 <!-- Hero Section -->
                 <section id="hero"
-                    class="d-flex align-items-center justify-content-center text-center hero-section mb-5"
-                    style="background-image: url('Themes/GoodToCode.Themes.DarkTheme/assets/images/hands-holding-code-blue.png'); background-position: top center; background-repeat: no-repeat; background-size: cover;">
+                    class="d-flex align-items-center justify-content-center text-center hero-section mb-5">
                     <div class="w-100 py-5 bg-translucent-black rounded-3" data-aos="zoom-out" data-aos-delay="100">
                         <h1 class="display-5 fw-bold mb-3">Innovating solutions and contributing to the tech community
                         </h1>
@@ -120,19 +118,22 @@
                         <div class="row justify-content-center mb-4">
                             <div class="col-lg-8 text-center">
                                 <h2 class="fw-bold mb-3 text-dark">Featured Products</h2>
-                                <p class="lead text-secondary">Accelerate your AI development with our Semantic Kernel Quick-start templates for Blazor and Web API.</p>
+                                <p class="lead text-secondary">Accelerate your AI development with our Semantic Kernel
+                                    Quick-start templates for Blazor and Web API.</p>
                             </div>
                         </div>
                         <div class="row g-4 justify-content-center">
                             <div class="col-12 col-md-6 col-lg-5">
                                 <div class="card h-100 shadow-sm border-0">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title fw-semibold text-primary mb-3">Semantic Kernel Quick-start for Blazor</h5>
+                                        <h5 class="card-title fw-semibold text-primary mb-3">Semantic Kernel Quick-start
+                                            for Blazor</h5>
                                         <p class="card-text text-secondary mb-4">
-                                            Jumpstart your Blazor projects with integrated Semantic Kernel AI capabilities and best practices.
+                                            Jumpstart your Blazor projects with integrated Semantic Kernel AI
+                                            capabilities and best practices.
                                         </p>
                                         <a href="https://marketplace.visualstudio.com/items?itemName=GoodToCode.SemanticKernelBlazorQuickStart"
-                                           class="btn btn-primary" target="_blank" rel="noopener">
+                                            class="btn btn-primary" target="_blank" rel="noopener">
                                             View on Visual Studio Marketplace
                                         </a>
                                     </div>
@@ -141,12 +142,14 @@
                             <div class="col-12 col-md-6 col-lg-5">
                                 <div class="card h-100 shadow-sm border-0">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title fw-semibold text-primary mb-3">Semantic Kernel Quick-start for Web API</h5>
+                                        <h5 class="card-title fw-semibold text-primary mb-3">Semantic Kernel Quick-start
+                                            for Web API</h5>
                                         <p class="card-text text-secondary mb-4">
-                                            Quickly build robust Web APIs powered by Semantic Kernel for scalable AI-driven solutions.
+                                            Quickly build robust Web APIs powered by Semantic Kernel for scalable
+                                            AI-driven solutions.
                                         </p>
                                         <a href="https://marketplace.visualstudio.com/items?itemName=GoodToCode.SemanticKernelWebAPIQuickStart"
-                                           class="btn btn-primary" target="_blank" rel="noopener">
+                                            class="btn btn-primary" target="_blank" rel="noopener">
                                             View on Visual Studio Marketplace
                                         </a>
                                     </div>
@@ -167,9 +170,6 @@
                         </div>
                     </div>
                 </section>
-                <a href="#spotlight" class="d-block mt-4 text-light fs-2">
-                    <i class="bi bi-chevron-down"></i>
-                </a>
             </div>
         </div>
     </main>
@@ -201,6 +201,7 @@
     <!-- End Browser Link -->
     <script src="/_framework/aspnetcore-browser-refresh.js"></script>
     <style>
+        /* Responsive Hero Section Heights */
         @media (max-width: 1200px) {
             .hero-section {
                 min-height: 80vh;
@@ -225,9 +226,45 @@
             }
         }
 
-        /* Oqtane Styles */
+        /* General Layout */
         body {
             padding-top: 7rem;
+        }
+
+        .content {
+            background-color: var(--bs-black);
+            position: relative;
+            top: 0;
+        }
+
+        .footer {
+            padding-top: 15px;
+            min-height: 40px;
+            text-align: center;
+            color: #ffffff;
+            z-index: 1000;
+        }
+
+        /* Navbar and Controls */
+        .navbar-bg-primary-gradient {
+            background: linear-gradient(to right, var(--bs-primary), rgba(0, 0, 0, 0));
+        }
+
+        .navbar-toggler {
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: .5rem;
+        }
+
+        .controls {
+            z-index: 2000;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-right: 10px;
+        }
+
+        .controls-group {
+            float: right;
+            margin-right: 25px;
         }
 
         /* App Logo */
@@ -236,36 +273,59 @@
             padding: 5px 50px 0 25px;
         }
 
-        /* Hero */
-        .hero-section {
-            min-height: 40vh;
+        /* App Menu */
+        .app-menu .nav-item {
+            font-size: 0.9rem;
+            padding-bottom: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .app-menu .nav-item a {
+            border-radius: 4px;
+            height: 3rem;
             display: flex;
             align-items: center;
-            justify-content: center;
+            line-height: 3rem;
+            padding-left: 1rem;
+            color: inherit;
+            background-color: transparent;
+            transition: background-color 0.2s, color 0.2s;
         }
 
-        .content {
-            background-color: var(--bs-black);
+        .app-menu .nav-item a.active,
+        .app-menu .nav-item a:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            color: white;
         }
 
-
-        .bg-translucent-black {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 1rem;
-            border-radius: 0.5rem;
+        .app-menu .nav-link .oi {
+            width: 1.5rem;
+            font-size: 1.1rem;
+            vertical-align: text-top;
+            top: -2px;
         }
 
+        /* App Search */
+        .app-search {
+            border-radius: 6px;
+        }
+
+        .app-search input {
+            width: auto;
+        }
+
+        .app-search input+button {
+            position: initial;
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+
+        /* Table Styles */
         .table> :not(caption)>*>* {
             box-shadow: none;
         }
 
-        .table .form-control {
-            background-color: #ffffff !important;
-            border-width: 0.5px !important;
-            border-bottom-color: #ccc !important;
-            color: #000 !important;
-        }
-
+        .table .form-control,
         .table .form-select {
             background-color: #ffffff !important;
             border-width: 0.5px !important;
@@ -281,77 +341,56 @@
             background-color: var(--bs-secondary);
         }
 
+        /* Alerts */
         .alert-dismissible .btn-close {
             z-index: 1;
         }
 
-        .controls {
-            z-index: 2000;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            margin-right: 10px;
-        }
-
-        .app-menu .nav-item {
-            font-size: 0.9rem;
-            padding-bottom: 0.5rem;
-            white-space: nowrap;
-        }
-
-        .app-menu .nav-item a {
-            border-radius: 4px;
-            height: 3rem;
-            display: flex;
-            align-items: center;
-            line-height: 3rem;
-            padding-left: 1rem;
-        }
-
-        .app-menu .nav-item a.active {
-            background-color: rgba(255, 255, 255, 0.25);
-            color: white;
-        }
-
-        .app-menu .nav-item a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        .app-menu .nav-link .oi {
-            width: 1.5rem;
-            font-size: 1.1rem;
-            vertical-align: text-top;
-            top: -2px;
-        }
-
-        .app-search input {
-            width: auto;
-        }
-
-        .navbar-bg-primary-gradient {
-            background: linear-gradient(to right, var(--bs-primary), rgba(0, 0, 0, 0));
-        }
-
-        .navbar-toggler {
-            background-color: rgba(255, 255, 255, 0.1);
-            margin: .5rem;
-        }
-
+        /* Module Actions */
         div.app-moduleactions a.dropdown-toggle,
         div.app-moduleactions div.dropdown-menu {
             color: #ffffff;
         }
 
-        .footer {
-            padding-top: 15px;
-            min-height: 40px;
-            text-align: center;
-            color: #ffffff;
-            z-index: 1000;
+        /* Hero Section */
+        .hero-section {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-image: url('Themes/GoodToCode.Themes.DarkTheme/assets/images/hands-holding-code-blue.png');
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
-        @media (max-width: 767.98px) {
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 0.5rem;
+        }
 
+        .hero-section>div.w-100 {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bg-translucent-black {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 767.98px) {
             .app-menu {
                 width: 100%;
             }
@@ -364,9 +403,8 @@
 
             .controls {
                 height: 60px;
-                top: 15px;
-                position: fixed;
                 top: 0px;
+                position: fixed;
                 width: 100%;
                 background-color: rgb(0, 0, 0);
             }
@@ -377,22 +415,11 @@
             }
 
             .content {
-                position: relative;
                 top: 60px;
-            }
-
-            .app-search {
-                border-radius: 6px;
             }
 
             .app-search input {
                 display: none !important;
-            }
-
-            .app-search input+button {
-                position: initial;
-                padding-top: 7px;
-                padding-bottom: 7px;
             }
 
             .app-search:active,
@@ -428,30 +455,6 @@
                 padding-top: 6px;
                 padding-bottom: 6px;
             }
-        }
-
-        /* Add to your CSS */
-        .hero-section {
-            position: relative;
-        }
-
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            /* Adjust opacity as needed */
-            z-index: 1;
-            border-radius: 0.5rem;
-        }
-
-        .hero-section>div.w-100 {
-            position: relative;
-            z-index: 2;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
         }
     </style>
 </body>
